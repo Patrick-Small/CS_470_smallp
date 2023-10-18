@@ -82,7 +82,6 @@ def apply_filter(image, kernel, alpha=1.0, beta=0.0, convert_uint8=True):
     
     #Create padded image
     #Get the amount of padding as the h & w of the kernel int /2
-    #Assistance from Matt B.
     padH = kernel.shape[0]//2
     padW = kernel.shape[1]//2
     
@@ -98,7 +97,6 @@ def apply_filter(image, kernel, alpha=1.0, beta=0.0, convert_uint8=True):
         for c in range(image.shape[1]):
            
            #Grab the subimage from the padded image
-           #Assistance from Matt B
            subImage = padImage[r: (r + kernel.shape[0]), c: (c + kernel.shape[1])]
            
            #Multiply the subimage by the kernel
