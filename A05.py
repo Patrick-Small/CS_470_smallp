@@ -85,28 +85,26 @@ def get_data_transform(approach_name, training):
     
     #return v2.Compose([v2.ToImageTensor(), v2.ConvertImageDtype()]);
     
-    match approach_name:
+    if approach_name == "VGG19":
         
-        case "VGG19":
-            
-            weights = get_weight ("VGG19_Weights.DEFAULT")
-            preprocess = weights.transforms()
-            data_transform = preprocess
-            return data_transform
-                
-        case "approach_2":
-            
-            #If it's for training
-            if training:
+        weights = get_weight ("VGG19_Weights.DEFAULT")
+        preprocess = weights.transforms()
+        data_transform = preprocess
+        return data_transform
+    
+    elif approach_name == "approach_2":
         
-                data_transform = v2.Compose([v2.ToImageTensor(), v2.ConvertImageDtype()]) 
+        #If it's for training
+        if training:
         
-            #If it's not for training
-            else:
+            data_transform = v2.Compose([v2.ToImageTensor(), v2.ConvertImageDtype()]) 
         
-                data_transform = v2.Compose([v2.ToImageTensor(), v2.ConvertImageDtype()])
+        #If it's not for training
+        else:
+        
+            data_transform = v2.Compose([v2.ToImageTensor(), v2.ConvertImageDtype()])
                     
-            return data_transform
+        return data_transform
         
 
 #Given the name, return the prefered batch size. Whatever you want it to be!
