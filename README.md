@@ -1,4 +1,4 @@
-#CS_470_smallp
+# CS_470_smallp
 
 This repository features the 5 major projects for CS_470 Computer Vision and Image Processing, taken during the Fall semester of 2023 at SUNY Polytechnic Institute.
 
